@@ -14,10 +14,15 @@ in the header of every HTML document you would like to use StatesJS on.
 
 ### Examples
 
-And repeat
+StatesJS use JavaScript Object Notation to define an HTML elements state. 
+For example, to color something red when it is clicked:
 
 ```
-until finished
+document.querySelectorAll(".element").event("click", {
+  style:{
+    color:"red"
+  }
+}
 ```
 
 
