@@ -40,25 +40,23 @@ Element.prototype.state = NodeList.prototype.state = HTMLCollection.prototype.st
 			        currentElement.attachStyle(attachedState.style)
 				}
 			    else if (currentKey == "toggle") {
-					currentElement.attachEvents(attachedState.toggle.events, function(){
-			        		currentElement.toggleIndex++
-			        		alert("CLICK")
-			        		if (currentElement.toggleIndex % 2 == 1) { //active
-			        			//if styles exist, apply
-			        			exists(attachedState.toggle.active.style) ? (
-			        				currentElement.attachStyle(attachedState.toggle.active.style)
-			        			) : ("boi")
+					currentElement.attachEvents("click", function(){
+			        		this.toggleIndex++
+			        		if (this.toggleIndex % 2 == 1) { //active
+			        			if(exists(attachedState.toggle.active.style)){
+			        				this.attachStyle(attachedState.toggle.active.style)
+			        			}
 			        			//if scripts exist, apply
-			        			exists(attachedState.toggle.active.script) ? (
-			        				attachedState.toggle.active.script(currentElement)
-			        			) : ("boi")
+			        			if(exists(attachedState.toggle.active.script)){
+			        				attachedState.toggle.active.script(this)
+			        			}
 			        		}
 			        		else {//inactive
 				        		if (exists(attachedState.toggle.inactive.style)){
-				        			currentElement.attachStyle(attachedState.toggle.inactive.style)
+				        			this.attachStyle(attachedState.toggle.inactive.style)
 				        		}
 			        			if(exists(attachedState.toggle.inactive.script)){
-			        				attachedState.toggle.inactive.script(currentElement)
+			        				attachedState.toggle.inactive.script(this)
 			        			}
 			        		}
 			        	})
@@ -104,16 +102,5 @@ Element.prototype.event = NodeList.prototype.event = HTMLCollection.prototype.ev
 	for (var i = 0; i < elemList.length; i++) {
 		var c = elemList[i]
 		c.state(newState)
-	}
-}
-
-
-Element.prototype.style = NodeList.prototype.style = HTMLCollection.prototype.style = function(stylesheet) {
-		var elemList = this.isNodeList() ? [].slice.call(this) : [this]
-	
-	for (var i = 0; i < elemList.length; i++) {
-		elemList[i].state({
-			style:stylesheet
-		})
 	}
 }
