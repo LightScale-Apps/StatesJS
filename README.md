@@ -21,13 +21,10 @@ until finished
 ```
 
 
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-Current Version: *0.8*
+Current Version: *0.8.0*
 
 ## Authors
 
