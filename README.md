@@ -32,6 +32,7 @@ For more in depth examples go to DOCUMENTATION.md
 ## Versioning
 
 Current Version: *0.7.0*
+
 Under Developement: *0.8.0 beta*
 
 ## Authors
