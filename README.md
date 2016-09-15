@@ -1,10 +1,14 @@
 # StatesJS
 
-#### StatesJS is a small JS framework for easily handling DOM events. StatesJS allows you to attach events, handle styles for events, and style elements with JavaScript
+### StatesJS is a small JS framework for easily handling DOM events. StatesJS allows you to attach events, handle styles for events, and style elements with JavaScript
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+StatesJS is a JS framework for Web Developement. To use StatesJS on your website, simply put
+```
+<script
+```
+
 
 ### Prerequisities
 
