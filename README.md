@@ -4,10 +4,12 @@
 
 ## Getting Started
 
-StatesJS is a JS framework for Web Developement. To use StatesJS on your website, simply put
+StatesJS is a JS framework for Web Developement. To use StatesJS on your website, simply include
 ```
-<script
+<script src="https://raw.githubusercontent.com/LightScale-Apps/StatesJS/master/States.js"></script>
 ```
+
+in the header of every HTML document you would like to use StatesJS on.
 
 
 ### Prerequisities
