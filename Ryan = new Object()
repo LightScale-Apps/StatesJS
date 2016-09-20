@@ -1,0 +1,25 @@
+var Ryan = {
+	personality : "Annoying",
+	hobbies : "Being weird",
+	lastName : "Hillis",
+	relatives : {
+		hisMothersUncle:{
+			beastiness: "Overflow Error",
+			description: "See hisMothersUncle.beastiness",
+			hobbbies: "Being O-Beast"
+		},
+		Natalie:"O-BEAST!!!!!!!!!!!",
+		Sammi: "see Ryan.relatives.Natalie"
+	}
+	
+};
+
+for (var i in Ryan) {
+	i !== "relatives" ? console.log(Ryan[i]) : rest()
+}
+
+function rest(){
+	for (var i in Ryan.relatives) {
+		console.log(Ryan.relatives.i)
+	}
+}
