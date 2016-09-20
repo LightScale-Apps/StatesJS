@@ -78,6 +78,7 @@ Example HTML
     
     <div class="select" id="three">
     </div>
+    
     ```
     
 JavaScript:
