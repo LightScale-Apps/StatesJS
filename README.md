@@ -20,12 +20,13 @@ There are many ways to apply states to an HTML Element (or NodeList).
 
 Use the 'get()' method to select an element in the DOM using CSS selectors.
 
-```get(nav > .class.second-class .nested-class)```
+```get("nav > .class.second-class .nested-class")```
 
 ### Step 2: Attach States
 
-There are many ways to attach states to an HTML element.
-If you only want to attach a state for a certain event, use the event method.
+There are two ways to attach states to HTML elements. The state method, and the event method.
+
+#### The Event Method
 
 ```elem.event(event, state)```
 
@@ -44,7 +45,7 @@ get(".element").event("click", {
 }
 ```
 
-#### Style Key:
+##### Style Key:
 
 The first key, style, is an object literal containing any valid CSS declaration. Be aware, however, that the JavaScript styke syntax is slightly different from CSS syntax. 
 
@@ -60,7 +61,148 @@ And finally, JavaScript has to be comma seperated, not semicolon sperated.
 
 ```fontSize: "16px",``` instead of ```font-size: 16px;```
 
-#### Script Key:
+(For more Info, scroll down to 'The Style Method')
+
+##### Script Key:
+
+The script key contains a function with one argument, self. Any JavaScript code in the script function will be run whenever the event fires. You can use the variable 'self' to refer to the element that the event was activated on.
+
+Example HTML
+
+ ``` 
+    <div class="select" id="one">
+    </div>
+    
+    <div class="select" id="two">
+    </div>
+    
+    <div class="select" id="three">
+    </div>
+    ```
+JavaScript:
+```
+get(".select").event("click", {
+    style:{
+        color:"red"
+    },
+    script:function(self){
+        alert(self.id)
+    }
+}) 
+```
+
+Because every <div> has the class select, the "click" event will be applied to all of them. However, when the event occurs, only the element that was clicked will be turned red. This will also apply to the script function, alerting only the id of the element that was clicked.
+
+#### The State Method
+
+You can also use the state method to attach states to HTML elements.
+
+For example:
+
+
+```get(".selector").state({
+    mouseover:{   
+        style:{
+            color:"red"
+        },
+        script:function(self){
+            alert(self.id)
+        }
+    }
+})
+```
+
+The state method takes only one argument, state, which is a JavaScript Object very similar to the event method's state.
+The only difference is that with the event method you specify the event, and then provde a style and script, but with the state method, you have the event as a key and the associated style and script inside of it. (Note: an event does not need to contain both script and style declarations)
+
+The first example with the event method could be rewritten using the state method like so:
+
+```
+get(".select").state({
+    click:{
+        style:{
+            color:"red"
+        },
+        script:function(self){
+            alert(self.id)
+        }
+    }
+}) 
+```
+
+With the state method, you can also apply styles directly to the element:
+
+```
+get(".select").state({
+    ...
+    style:{
+        color:"red
+    }
+})
+```
+
+And add multiple events:
+```
+get(".select").state({
+    click:{
+        ...
+    },
+    mouseover:{
+        ...
+    }
+})
+```
+
+### The Style Method
+
+The style method is used to apply styles directly to an HTML element, without any events needing to be triggered. The style method takes only one argument, stylesheet. The stylesheet is the exact same as the styles in the event and state method's style declarations, except you leave out the syle key.
+
+Example:
+
+```
+get(".select").style({
+    color:"red",
+    fontSize:"12px"
+})
+```
+
+Because the styles are being set with JavaScript, you can use all of JavaScript features. For example,
+
+Functions:
+
+```
+function getColor(type){
+    if (type == "text") {
+        return "red"
+    }
+    else if (type == "background") {
+        return "blue"
+    }
+}
+get(".select").style({
+    color: getColor("text"),
+    backgroundColor: getColor("background")
+})
+```
+
+Variables:
+
+```
+var fontSize = "16px"
+
+get(".select").style({
+   fontSize: fontSize
+})
+```
+
+Math: 
+
+```
+get(".select").style({
+    height: maxHeight 
+})
+```
+
 
 
 
