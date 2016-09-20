@@ -78,10 +78,10 @@ Example HTML
     
     <div class="select" id="three">
     </div>
-    
-    ```
+```
     
 JavaScript:
+
 
 ```
 get(".select").event("click", {
