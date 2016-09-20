@@ -1,3 +1,7 @@
+function get(string){
+	return document.querySelectorAll(string)
+}
+
 Element.prototype.isNodeList = function() {return false;};
 
 NodeList.prototype.isNodeList = HTMLCollection.prototype.isNodeList = function(){return true};
