@@ -96,14 +96,15 @@ get(".select").event("click", {
 
 Because every div has the class select, the "click" event will be applied to all of them. However, when the event occurs, only the element that was clicked will be turned red. This will also apply to the script function, alerting only the id of the element that was clicked.
 
-#### The State Method
+### The State Method
 
 You can also use the state method to attach states to HTML elements.
 
 For example:
 
 
-```get(".selector").state({
+```
+get(".selector").state({
     mouseover:{   
         style:{
             color:"red"
@@ -169,7 +170,7 @@ get(".select").style({
 })
 ```
 
-Because the styles are being set with JavaScript, you can use all of JavaScript features. For example,
+Because the styles are being set with JavaScript, you can use all of JavaScript's features. For example,
 
 Functions:
 
@@ -198,16 +199,46 @@ get(".select").style({
 })
 ```
 
-Math: 
+and Math: 
 
 ```
+maxHeight = 78
+minHeight = 12
 get(".select").style({
-    height: maxHeight 
+    height: (1 + (maxHeight - minHeight) * 2).toString() + "px"
+})
+```
+(Keep in mind, everything must be a string, so we used the toString() method to convert our number to a string)
+
+
+There are many more things that you can do with JavaScript style setting, such as using conditional logic,
+
+```
+fontSize: (windowSize > 18 ? "16px" : "6px")
+```
+
+For and while loops, and many more. JavaScript style setting is like the most functional CSS Preprocessor ever.
+
+JavaScript style setting also can have access to HTML Elements direct properties. (such as innerHTML, className and even custom properties)
+
+For example:
+
+```
+Element.prototype.customProp = 0
+
+get(".select").style({
+    customProp: 7,
+    innerHTML: "Show",
+    className: "class1 class2 class3"
 })
 ```
 
+We defined a custom property called 'customProp' and set that to 7, and used the properties 'innerHTML' and 'className' to set their values.
 
 
+### StatesJS Custom Events
+
+There are many custom events that you can use with StatesJS, on of the most useful being the "toggle" event. There are two ways to set a toggle event on an HTML Element. The event method and the state method.
 
 ## Versioning
 
