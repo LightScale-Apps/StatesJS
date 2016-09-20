@@ -47,7 +47,7 @@ get(".element").event("click", {
 
 ##### Style Key:
 
-The first key, style, is an object literal containing any valid CSS declaration. Be aware, however, that the JavaScript styke syntax is slightly different from CSS syntax. 
+The first key, style, is a JavaScript Object containing any valid CSS declaration. Be aware, however, that the JavaScript style syntax is slightly different from CSS syntax. 
 
 JavaScript has to be camelCased, for example. 
 
@@ -79,7 +79,9 @@ Example HTML
     <div class="select" id="three">
     </div>
     ```
+    
 JavaScript:
+
 ```
 get(".select").event("click", {
     style:{
