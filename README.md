@@ -94,7 +94,7 @@ get(".select").event("click", {
 }) 
 ```
 
-Because every <div> has the class select, the "click" event will be applied to all of them. However, when the event occurs, only the element that was clicked will be turned red. This will also apply to the script function, alerting only the id of the element that was clicked.
+Because every div has the class select, the "click" event will be applied to all of them. However, when the event occurs, only the element that was clicked will be turned red. This will also apply to the script function, alerting only the id of the element that was clicked.
 
 #### The State Method
 
