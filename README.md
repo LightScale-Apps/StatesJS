@@ -12,16 +12,16 @@ StatesJS is a JS framework for Web Developement. To use StatesJS on your website
 in the header of every HTML document you would like to use StatesJS on.
 
 
-### Examples
+## Examples
 
 There are many ways to apply states to an HTML Element (or NodeList).
 
-#### Step 1: Select Elements
+### Step 1: Select Elements
 
 Use the 'get()' method to select an element in the DOM using CSS selectors.
 ```get(nav > .class.second-class .nested-class)```
 
-#### Step 2: Attach States
+### Step 2: Attach States
 
 There are many ways to attach states to an HTML element.
 If you only want to attach a state for a certain event, use the event method.
@@ -42,7 +42,7 @@ get(".element").event("click", {
     }
 }
 ```
-##### Style Key:
+#### Style Key:
 
 The first key, style, is an object literal containing any valid CSS declaration. Be aware, however, that the JavaScript styke syntax is slightly different from CSS syntax. 
 
@@ -56,7 +56,7 @@ And finally, JavaScript has to be comma seperated, not semicolon sperated.
 
 (```fontSize: "16px",``` instead of ```font-size: 16px;```)
 
-##### Script Key:
+#### Script Key:
 
 
 
