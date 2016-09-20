@@ -19,6 +19,7 @@ There are many ways to apply states to an HTML Element (or NodeList).
 ### Step 1: Select Elements
 
 Use the 'get()' method to select an element in the DOM using CSS selectors.
+
 ```get(nav > .class.second-class .nested-class)```
 
 ### Step 2: Attach States
@@ -42,19 +43,22 @@ get(".element").event("click", {
     }
 }
 ```
+
 #### Style Key:
 
 The first key, style, is an object literal containing any valid CSS declaration. Be aware, however, that the JavaScript styke syntax is slightly different from CSS syntax. 
 
 JavaScript has to be camelCased, for example. 
 
-(```fontSize:``` instead of ```font-size:```)
+```fontSize:``` instead of ```font-size:```
 
-JavaScript also has to include quotes (```fontSize: "16px"``` instead of ```font-size: 16px```)
+JavaScript also has to include quotes 
+
+```fontSize: "16px"``` instead of ```font-size: 16px```
 
 And finally, JavaScript has to be comma seperated, not semicolon sperated.
 
-(```fontSize: "16px",``` instead of ```font-size: 16px;```)
+```fontSize: "16px",``` instead of ```font-size: 16px;```
 
 #### Script Key:
 
