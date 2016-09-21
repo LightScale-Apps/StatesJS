@@ -13,7 +13,7 @@ function exists(v) {
 }
 
 
-Element.prototype.attachStyle = function(stylesheet) {
+Element.prototype.style = function(stylesheet) {
 	for (var styleKey in stylesheet) {
 		if( exists(this.style[styleKey]) ){
 			this.style[styleKey] = stylesheet[styleKey]
@@ -41,14 +41,14 @@ Element.prototype.state = NodeList.prototype.state = HTMLCollection.prototype.st
 		for (var currentKey in attachedState) {
 			(function(currentElement){
 				if (currentKey == "style") {
-			        currentElement.attachStyle(attachedState.style)
+			        currentElement.style(attachedState.style)
 				}
 			    else if (currentKey == "toggle") {
 					currentElement.attachEvents("click", function(){
 			        		this.toggleIndex++
 			        		if (this.toggleIndex % 2 == 1) { //active
 			        			if(exists(attachedState.toggle.active.style)){
-			        				this.attachStyle(attachedState.toggle.active.style)
+			        				this.style(attachedState.toggle.active.style)
 			        			}
 			        			//if scripts exist, apply
 			        			if(exists(attachedState.toggle.active.script)){
@@ -57,7 +57,7 @@ Element.prototype.state = NodeList.prototype.state = HTMLCollection.prototype.st
 			        		}
 			        		else {//inactive
 				        		if (exists(attachedState.toggle.inactive.style)){
-				        			this.attachStyle(attachedState.toggle.inactive.style)
+				        			this.style(attachedState.toggle.inactive.style)
 				        		}
 			        			if(exists(attachedState.toggle.inactive.script)){
 			        				attachedState.toggle.inactive.script(this)
@@ -68,7 +68,7 @@ Element.prototype.state = NodeList.prototype.state = HTMLCollection.prototype.st
 			        else {
 			        	currentElement.attachEvents(currentKey, function(){
 			        		if(exists(attachedState[currentKey].style)){
-			        			currentElement.attachStyle(attachedState[currentKey].style)
+			        			currentElement.style(attachedState[currentKey].style)
 			        		}
 				        	if(exists(attachedState[currentKey].script)){
 				        		attachedState[currentKey].script(currentElement)
