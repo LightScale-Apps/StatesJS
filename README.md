@@ -12,7 +12,7 @@ StatesJS is a JS framework for Web Developement. To use StatesJS on your website
 in the header of every HTML document you would like to use StatesJS on.
 
 
-## Examples
+## Tutorial
 
 There are many ways to apply states to an HTML Element (or NodeList).
 
@@ -238,13 +238,58 @@ We defined a custom property called 'customProp' and set that to 7, and used the
 
 ### StatesJS Custom Events
 
-There are many custom events that you can use with StatesJS, on of the most useful being the "toggle" event. There are two ways to set a toggle event on an HTML Element. The event method and the state method.
+StatesJS supports custom events that can be used with the event and state methods. Currently, in version 0.7.0 and and 0.8 beta, the only custom event that can be used in StatesJS is the "toggle" event.
+
+The toggle event is used to describe two different states of an HTML Element, which StatesJS will flip between ("toggle") every time a certain event is activated.
+
+The toggle sysntax looks like this:
+
+```
+toggle:{
+    events:*Array or String*
+    active:{
+        style:{
+            ...
+        },
+        script:function(self){
+            ...
+        }
+    },
+    inactive:{
+        style:{
+            ...
+        },
+        script:function(self){
+            ...
+        }
+    }
+```
+
+The first key is the events key, which is either a single event ```"click"``` or an Array of events ```["click", "contextmenu", "dblclick"]```
+
+Every time on of the events fires, StatesJS will change the state of the object between active and inactive. 
+
+an HTML Element's defualt state is inactive. This can be changed by typing ```Element.prototype.toggleIndex = 1``` after you include StatesJS in your document, but before you code anything involving StatesJS
+
+Example:
+
+```
+<script src="path/to/StatesJS"></script>
+
+... Code not using StatesJS ...
+
+Element.prototype.toggleIndex = 1
+
+... Code using StatesJS ...
+```
+
+Whenever an HTML Element's sate changes from active to inactive (or vice versa), StatesJS will apply the styles and run the script provided in that respective state's section.
 
 ## Versioning
 
 Current Version: *0.7.0*
 
-Under Developement: *0.8.0 beta*
+Under Developement: *0.8 beta*
 
 ## Authors
 
