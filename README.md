@@ -40,7 +40,7 @@ There are two ways to attach states to HTML elements. The state method, and the 
 
 ```elem.event(event, state)```
 
-The event argument is a string that is either a valid event in the addEventListener function. 
+The event argument is a string that must be a valid event in the addEventListener function. 
 The state argument is a JavaScript Object containing a style key and/or a script key.
 
 An example (using StatesJS Raw String Query) is illustrated below.
