@@ -9,7 +9,7 @@ StatesJS is a JS framework for Web Developement. To use StatesJS on your website
 <script src="https://raw.githubusercontent.com/LightScale-Apps/StatesJS/master/States.js"></script>
 ```
 
-in the header of every HTML document you would like to use StatesJS on.
+at the bottom of every HTML document you would like to use StatesJS on.
 
 
 ## Tutorial
@@ -18,9 +18,18 @@ There are many ways to apply states to an HTML Element (or NodeList).
 
 ### Step 1: Select Elements
 
-Use the 'get()' method to select an element in the DOM using CSS selectors.
+Select a NodeList or HTMLCollection.
 
-```get("nav > .class.second-class .nested-class")```
+This can be a variable, that you already have in your code, or a ```document.querySelectorAll()``` command.
+
+Due to space restrictions, StatesJS does not work with raw elements, so make sure to apply the commands to a NodeList or HTMLCollection.
+
+#### Raw String Queries
+
+StatesJS does have a built in selector to its functions, so to skip the long query commands, you can just apply the StatesJS directly to the selector string.
+
+For example, use ```"div.class .nested-class".event()``` 
+instead of ```document.querySelectorAll("div.class .nested-class").event()```
 
 ### Step 2: Attach States
 
@@ -30,12 +39,13 @@ There are two ways to attach states to HTML elements. The state method, and the 
 
 ```elem.event(event, state)```
 
-The event argument is a string that is either a valid event in the addEventListener function, or a StatesJS custom event (such as toggle). The state argument is a JavaScript Object containing a style key and/or a script key.
+The event argument is a string that is either a valid event in the addEventListener function. 
+The state argument is a JavaScript Object containing a style key and/or a script key.
 
-An example is illustrated below.
+An example (using StatesJS Raw String Query) is illustrated below.
 
 ```
-get(".element").event("click", {
+"element.class".event("click", {
     style:{
         color:"red"
     },
@@ -65,7 +75,7 @@ And finally, JavaScript has to be comma seperated, not semicolon sperated.
 
 ##### Script Key:
 
-The script key contains a function with one argument, self. Any JavaScript code in the script function will be run whenever the event fires. You can use the variable 'self' to refer to the element that the event was activated on.
+The script key contains a function with one argument, ```self```. Any JavaScript code in the script function will be run whenever the event fires. You can use the variable 'self' to refer to the element that the event was activated on.
 
 Example HTML
 
@@ -104,7 +114,9 @@ For example:
 
 
 ```
-get(".selector").state({
+var nodeList = document.querySelectorAll("div *");
+
+nodeList.state({
     mouseover:{   
         style:{
             color:"red"
@@ -122,7 +134,7 @@ The only difference is that with the event method you specify the event, and the
 The first example with the event method could be rewritten using the state method like so:
 
 ```
-get(".select").state({
+"element.class".state({
     click:{
         style:{
             color:"red"
@@ -137,7 +149,7 @@ get(".select").state({
 With the state method, you can also apply styles directly to the element:
 
 ```
-get(".select").state({
+document.querySelectorAll("p.red").state({
     ...
     style:{
         color:"red
@@ -147,7 +159,7 @@ get(".select").state({
 
 And add multiple events:
 ```
-get(".select").state({
+".select".state({
     click:{
         ...
     },
@@ -164,7 +176,7 @@ The style method is used to apply styles directly to an HTML element, without an
 Example:
 
 ```
-get(".select").style({
+".select".style({
     color:"red",
     fontSize:"12px"
 })
@@ -183,7 +195,7 @@ function getColor(type){
         return "blue"
     }
 }
-get(".select").style({
+".select".style({
     color: getColor("text"),
     backgroundColor: getColor("background")
 })
@@ -194,7 +206,7 @@ Variables:
 ```
 var fontSize = "16px"
 
-get(".select").style({
+"select".style({
    fontSize: fontSize
 })
 ```
@@ -204,7 +216,7 @@ and Math:
 ```
 maxHeight = 78
 minHeight = 12
-get(".select").style({
+".select".style({
     height: (1 + (maxHeight - minHeight) * 2).toString() + "px"
 })
 ```
@@ -226,7 +238,7 @@ For example:
 ```
 Element.prototype.customProp = 0
 
-get(".select").style({
+".select".style({
     customProp: 7,
     innerHTML: "Show",
     className: "class1 class2 class3"
@@ -238,61 +250,15 @@ We defined a custom property called 'customProp' and set that to 7, and used the
 
 ### StatesJS Custom Events
 
-StatesJS supports custom events that can be used with the event and state methods. Currently, in version 0.7.0 and and 0.8 beta, the only custom event that can be used in StatesJS is the "toggle" event.
-
-The toggle event is used to describe two different states of an HTML Element, which StatesJS will flip between ("toggle") every time a certain event is activated.
-
-The toggle sysntax looks like this:
-
-```
-toggle:{
-    events:*Array or String*
-    active:{
-        style:{
-            ...
-        },
-        script:function(self){
-            ...
-        }
-    },
-    inactive:{
-        style:{
-            ...
-        },
-        script:function(self){
-            ...
-        }
-    }
-```
-
-The first key is the events key, which is either a single event ```"click"``` or an Array of events ```["click", "contextmenu", "dblclick"]```
-
-Every time on of the events fires, StatesJS will change the state of the object between active and inactive. 
-
-an HTML Element's defualt state is inactive. This can be changed by typing ```Element.prototype.toggleIndex = 1``` after you include StatesJS in your document, but before you code anything involving StatesJS
-
-Example:
-
-```
-<script src="path/to/StatesJS"></script>
-
-... Code not using StatesJS ...
-
-Element.prototype.toggleIndex = 1
-
-... Code using StatesJS ...
-```
-
-Whenever an HTML Element's sate changes from active to inactive (or vice versa), StatesJS will apply the styles and run the script provided in that respective state's section.
-
 ## Versioning
 
-Current Version: *0.7.0*
+Current Version: *1.0*
 
-Under Developement: *0.8 beta*
+Under Developement: *1.0.1*
 
 ## Authors
 
 * **Ryan Hillis** - *Initial work*
+
 
 
