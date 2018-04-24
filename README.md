@@ -110,7 +110,7 @@ Because every div has the class select, the "click" event will be applied to all
 
 ### The State Method
 
-You can also use the state method to attach states to HTML elements.
+You can also use the ```element.state()``` method to attach events and states to HTML elements.
 
 For example:
 
