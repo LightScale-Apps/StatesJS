@@ -29,6 +29,7 @@ Due to space restrictions, StatesJS does not work with individual HTML elements,
 StatesJS does have a built in selector to its functions, so to skip the long query commands, you can just apply the StatesJS directly to the selector string.
 
 For example, use ```"div.class .nested-class".event()``` 
+
 instead of ```document.querySelectorAll("div.class .nested-class").event()```
 
 ### Step 2: Attach States
