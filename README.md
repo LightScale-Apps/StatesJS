@@ -22,7 +22,7 @@ Select a NodeList or HTMLCollection.
 
 This can be a variable, that you already have in your code, or a ```document.querySelectorAll()``` command.
 
-Due to space restrictions, StatesJS does not work with raw elements, so make sure to apply the commands to a NodeList or HTMLCollection.
+Due to space restrictions, StatesJS does not work with individual HTML elements, so make sure to apply the commands to a NodeList or HTMLCollection.
 
 #### Raw String Queries
 
