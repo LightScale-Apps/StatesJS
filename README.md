@@ -96,7 +96,7 @@ JavaScript:
 
 
 ```
-get(".select").event("click", {
+".select".event("click", {
     style:{
         color:"red"
     },
