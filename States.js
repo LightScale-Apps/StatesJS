@@ -11,7 +11,12 @@ StatesJS = {
 	}
 } //master object containing the backend functions
 
-NodeList.prototype.style = HTMLCollection.prototype.style = function(Styles) {
+NodeList.prototype.style = function(Styles) {
+	for (var i = 0; i < this.length; i++) { // loop through all elements
+		StatesJS.style(this[i], Styles) // style them accordingly
+	}
+}
+HTMLCollection.prototype.style = function(Styles) {
 	for (var i = 0; i < this.length; i++) { // loop through all elements
 		StatesJS.style(this[i], Styles) // style them accordingly
 	}
